@@ -1,5 +1,7 @@
 import React from 'react';
 import Tile from '../components/Tile';
+import Button from '../components/Button';
+import '../styles/History.scss';
 
 const dates = [
   1631910840000,
@@ -11,12 +13,13 @@ const dates = [
 
 const History = () => {
   return (
-    <div>
+    <div className="history">
       <h1>History</h1>
+
       {dates.map((item) => {
         return <Tile date={item} onClick={() => console.log(item)} />
       })}
-      
+      <Button />
     </div>
   );
 }

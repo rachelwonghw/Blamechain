@@ -9,7 +9,7 @@
   display: block;
   padding: 20px 20px 20px 12px;
 
-  &--text {
+  &__text {
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -18,8 +18,9 @@
     color: #383838;
   }
 
-  &--icon {
+  &__icon {
     float: 'right';
     display: 'inline-block';
+    color: #383838;
   }
 }
