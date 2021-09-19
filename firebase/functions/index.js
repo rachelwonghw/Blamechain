@@ -17,6 +17,64 @@ const fs = require('fs');
 const Busboy = require('busboy');
 const { default: axios } = require('axios');
 
+exports.everything = functions.https.onRequest((req, res) => {
+  if (req.method !== "GET") {
+    return res.status(405).end();
+  }
+
+  axios.get("https://dhuy348ip1.execute-api.us-east-1.amazonaws.com/dev/donors/")
+    .then(response => {
+      const conversations = response.data.map(({Record}) => {
+        const { email } = Record;
+        try {
+          const result = JSON.parse(email.replace(/#/g, '"'));
+
+          const {most_upset, speaker_started} = result;
+          if (!(most_upset && speaker_started)) return null;
+
+          return result;
+        }
+        catch {
+          return null;
+        }
+      }).filter(obj => obj !== null);
+
+      const analytics = conversations.reduce((prev, curr) => {
+        if (curr.most_upset && curr.speaker_started) {
+          prev.most_upset_counter[curr.most_upset] += 1;
+          prev.start_argument_counters[curr.speaker_started] += 1;
+          prev.count += 1;
+        }
+        
+        return prev;
+      }, {
+        most_upset_counter: {
+          "Bob": 0,
+          "Alice": 0
+        },
+        start_argument_counters: {
+          "Bob": 0,
+          "Alice": 0
+        },
+        count: 0
+      });
+
+      return res.send({
+        conversations,
+        analytics
+      });
+    })
+});
+
+exports.argument = functions.https.onRequest((req, res) => {
+  const {argumentId} = req.query;
+  axios.get(`https://dhuy348ip1.execute-api.us-east-1.amazonaws.com/dev/donors/${argumentId}`)
+    .then(response => {
+      const { email } = response.data;
+      return res.send(JSON.parse(email.replace(/#/g, '"')));
+    });
+});
+
  /**
  * Parses a 'multipart/form-data' upload request
  *
@@ -173,23 +231,15 @@ async function process(audio, fields) {
       currentBlock += a.word + " ";
     }
     else {
-      blocks.push({[currSpeaker]: currentBlock});
+      blocks.push({speaker: currSpeaker === 1 ? "Alice" : "Bob", text: currentBlock});
       currentBlock = a.word + " ";
       currSpeaker = a.speakerTag;
     }
     content[a.speakerTag] += a.word + " ";
     prevWord = a.word;
   }
-  blocks.push({[currSpeaker]: currentBlock});
+  blocks.push({speaker: currSpeaker === 1 ? "Alice" : "Bob", text: currentBlock});
 
-  const {start_timestamp, end_timestamp} = fields;
-  axios.post("https://dhuy348ip1.execute-api.us-east-1.amazonaws.com/Stage/donors", {
-    start_timestamp,
-    end_timestamp,
-    messages: blocks
-  }).catch(err => console.log(err));
-  
-  console.log(blocks);
   const data = {}
   Promise.all(Object.keys(content).map(async key => {
     data[key] = analyze(content[key]);
@@ -200,18 +250,27 @@ async function process(audio, fields) {
 
       let upset;
       if (-0.1 < data['1'].score < 0.1 && -0.1 < data['2'].score < 0.1) {
-        upset = data['1'].magnitude > data['2'].magnitude ? 1 : 2;
+        upset = data['1'].magnitude > data['2'].magnitude ? "Alice" : "Bob";
       }
       else {
-        upset = data['1'].score > data['2'].score ? 1 : 2;
+        upset = data['1'].score > data['2'].score ? "Alice" : "Bob";
       }
       console.log("Upset: " + upset);
-      const started = Object.keys(blocks[0])[0];
+      const started = blocks[0].speaker;
       console.log("Started: " + started);
 
-      axios.put("https://dhuy348ip1.execute-api.us-east-1.amazonaws.com/Stage/donors", {
-        most_upset_speaker: upset,
-        start_argument_speaker: started
-      }).catch(err => console.log(err));
+      const {start_timestamp, end_timestamp} = fields;
+
+      const formattedMsgs = blocks.map(blk => {
+        return `{ #${blk.speaker}#: #${blk.text}# }`;
+      }).join(", ")
+
+      const json = { 
+        donorUserName: Math.floor(Math.random() * 99999999 + 1), 
+        email: `{ #start_timestamp#: ${start_timestamp}, #end_timestamp#: ${end_timestamp}, #messages#: [${formattedMsgs}], #speaker_started#: #${started}#, #most_upset#: #${upset}# }` 
+      };
+
+      axios.post("https://dhuy348ip1.execute-api.us-east-1.amazonaws.com/dev/donors", json)
+        .catch(err => console.log(err));
     });
 }
