@@ -9,6 +9,13 @@ const color2 = '#F2D9DB';
 
 const Card = (props) => {
   const { upsetOverall } = props;
+  const data = upsetOverall ? [
+    { title: 'Bob', value: 65, color: color1 },
+    { title: 'Alice', value: 35, color: color2 },
+  ] : [
+    { title: 'Bob', value: 39, color: color1 },
+    { title: 'Alice', value: 61, color: color2 },
+  ];
 
   return (
     <div className="card">
@@ -19,16 +26,12 @@ const Card = (props) => {
         <div className="card__piechart">
           <PieChart
             radius={PieChart.defaultProps.radius - 10}
-            data={[
-              { title: 'Bob', value: 65, color: color1 },
-              { title: 'Alice', value: 35, color: color2 },
-            ]
-            }
+            data={data}
           />
         </div>
         <div className="card_analytics__wrapper">
-          <div className="card__analytics">Bob — 65%</div>
-          <div className="card__analytics">Alice — 35%</div>
+          <div className="card__analytics">{upsetOverall ? 'Bob — 65%' : 'Alice - 61%'}</div>
+          <div className="card__analytics">{upsetOverall ? 'Alice — 35%' : 'Bob - 39%'}</div>
         </div>
       </div>
     </div>
