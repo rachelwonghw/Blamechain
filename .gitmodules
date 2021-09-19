@@ -1,0 +1,3 @@
+[submodule "blockchain-as-a-database"]
+	path = blockchain-as-a-database
+	url = https://github.com/michaelhtleung/blockchain-as-a-database.git
