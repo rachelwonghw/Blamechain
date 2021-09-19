@@ -1,9 +1,14 @@
 .transcript {
+  height: 100%;
   align-items: center;
   margin: 0 auto;
   justify-content: center;
   box-sizing: border-box;
-  background-color: #FAFaFa;
+  padding-top: 64px;
+
+  &__logo {
+    margin-bottom: 20px;
+  }
 
   &__backButton {
     position: absolute;

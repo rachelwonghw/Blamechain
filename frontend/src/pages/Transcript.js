@@ -1,15 +1,22 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
+import Logo from '../components/Logo';
 import '../styles/Transcript.scss';
 
 
 
-const dateBubble = (date) => {
+const dateBubble = (date, history) => {
   const dateObj = new Date(date);
   return (
     <div className="transcript__dateBubble">
-      <div className="transcript__backButton">
+      <div 
+        className="transcript__backButton"
+        onClick={() => {
+          history.goBack();
+        }}
+      >
         <FontAwesomeIcon icon={faAngleLeft} />
       </div>
       <div className="transcript__dateBubble__text">
@@ -33,10 +40,11 @@ const leftBubble = (text) => {
 
 const Transcript = (props) => {
   const { date } = props;
+  const history = useHistory();
   return (
-    <div>
-      <h1>Transcript</h1>
-      {dateBubble(date)}
+    <div className="transcript">
+      <Logo className="transcript__logo" />
+      {dateBubble(date, history)}
       <div className="transcript__chat">
         {rightBubble("People used to say to me that you were too selfish to be an artist")}
         {rightBubble("I used to defend you")}
