@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { PieChart } from 'react-minimal-pie-chart';
+import axios from 'axios';
 import '../styles/Card.scss';
 
 //TODO: made it dynamic based on data received from endpoint 
@@ -9,6 +10,15 @@ const color2 = '#F2D9DB';
 
 const Card = (props) => {
   const { upsetOverall } = props;
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios.get("https://us-central1-blame-game-326403.cloudfunctions.net/everything")
+      .then(res => {
+        setData(res.data.analytics);
+      });
+  }, []);
+
   const data = upsetOverall ? [
     { title: 'Bob', value: 65, color: color1 },
     { title: 'Alice', value: 35, color: color2 },
