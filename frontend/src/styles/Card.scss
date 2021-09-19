@@ -1,11 +1,10 @@
 .card {
-  background: #FFFFFF;
+  background-color: #fafafa;
   border: 1px solid #EEEEEE;
   box-sizing: border-box;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
   border-radius: 4px;
-  padding: 20px;
-  margin-bottom: 24px;
+  height: 100vh;
 
 
   &__title {
