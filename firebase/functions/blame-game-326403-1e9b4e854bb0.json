@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "blame-game-326403",
+  "private_key_id": "1e9b4e854bb042c5eb22f7344938fa6ac9424c62",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCqEFxybQ0XhTBe\nf2OA8wr9w/Wq6PbZXP/FgQh8v1cQd3BzWNkCkmL4ceMiauDs+tMlMEsDWYxAcRBQ\nmhpc2OTsumjJ2iou8Llep+MPw0qQxLiutb1SIxFNDNUiJSNOtsyrm6TZQz23sgA5\n0fZWVfgjg/fFTy52NbKQD/FtyM1s+/f/rPiwlsclbCwat3mdcaqc6v0RHmNf0Ae7\ns3yM9FmvPp6hiAfiMjD7e5VQkVNF5o+hRalq99Q/7dRy6ehuti1K2T7wevcyEUek\nCCSJ6bc5AnR/s7MpKPjLrQbv8ZhIYH2+6hxj7MdfwGsKaBfsB0FSQoQC99DaBLHu\nTkH6dt8PAgMBAAECggEAJ5w89BfrSzWl8PSp1/CD+FxKnZ66VCFhn35w3CFy5W50\nXiFtFjjDXYulNDCBqCC5yjkn16VlUeMjwipKhqKsG2lFm/I5Dgrami3vaI37kaGI\nRIUnDfkGABTDlbrhsOVJ4ZSUflg3iVAn1k/NmQlYDOmhba8GKtlR+FUGTiRNmJrr\nlFdhDwysTV3omEichSpUt/icxwsL7u5pdl+MXgQ7ZZ/dS64cOvKyHZAFFAVA07q7\nJ+l8gYh1sqw6r1jaJ+j24Y97AFtYh3XMPNlIG97itoTjvvbvurHcKuJ6oRCg+ARS\nz7NU2aygXyAYkS+rtxXydEyd0Pa47IxIOoYjN68D3QKBgQDsJgeFG6kR6RIv12Rz\n4YbxjNLWOTCTESoEFs1L6wr3JWLRsyF1WfeXRgcn/coto2apOG+nPEJ/bE7tBCrH\nkXs0IGQG0Qe8cmWrpixuEMWKSyBw6TBB9J/4pmqq2HSR+na7Ki+cmDrKoZHe860f\nfYuadpb97dD6cngncksLaZCw7QKBgQC4XCzadLUqzsiOjXtgZsgeNjNkVwOB3rJZ\n3fy+K3LOtICxmAgrl1UWzIVdA0/IS+BxoY2K7IoGYNvAWuOhWa98CZbTwGL40027\nDq3ewSOYcwaP1DgUKGiEf2iwge3gLnq/a1O53W5Q1igLlcqYHsJ3ZoyJmmm2qTQp\nbysS2M8cawKBgEyZQVMx17ORkG6oRVM5UlZDwZfvUQxDQwe0hb8cbKAiJl2y5yVz\nm1YcRvH35n7LQ9+cCMuMRl2iui8zbNTzIa2U3B1B7Gp6CPSWoE7Lbegf2lQFr7uV\nJ9a11F+6eoVnYt/vHSaEUn2rzu8sx3kxdfkSgoO3glPakZLqBeGbym05AoGAQNr0\nUHmEDiYmebed8oDV34Lzu1W8/x/noCOuuPux7LOlHlS8cxFOtrGGLP1wQKcosvDB\nSWEDAVFrnRScRXO2fy0kaSOh7aTwEGEOm3FYY1X7tfdTLww0EIB9xLJAi3/uYI6S\nKq2SFE/yUHkGh1My2Cw0Pmgazk5h8j2QapXo7jcCgYAQOVLYr4e0t42H9SsxtHRg\nEMErrLDYmp8I5NPs6tpupbKj6VKj00+31xYc2RIp5BqvUfzzwve2V0b74UHnq2oO\nsXaoslGfMporwo1mkYsgljwp+Fu2YIOujXUL0qtqgrBu1F0ie+PGQpGZeMpp4OKv\n1KRygkSTNWYULsCGsF4j5w==\n-----END PRIVATE KEY-----\n",
+  "client_email": "admin-200@blame-game-326403.iam.gserviceaccount.com",
+  "client_id": "100272318426690609230",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/admin-200%40blame-game-326403.iam.gserviceaccount.com"
+}
