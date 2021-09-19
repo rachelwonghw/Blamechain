@@ -45,8 +45,8 @@ const History = () => {
         </div>
       }
       <Searchbar />
-      {dates.map((item, index) => {
-        return <Tile date={item} onClick={() => history.push(`/transcript/${index}`)} id={index} />
+      {data.map((item, index) => {
+        return <Tile date={new Date()} data={item} onClick={() => history.push(`/transcript/${index}`)} id={index} />
       })}
       <Button />
     </div>
