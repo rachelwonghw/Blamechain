@@ -26,6 +26,10 @@
     line-height: 34px;
     text-align: center;
     color: #383838;
+  }
 
+  &--recording {
+    border: 2px solid #BA4863;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
   }
 }
