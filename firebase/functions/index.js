@@ -181,12 +181,14 @@ async function process(audio, fields) {
     prevWord = a.word;
   }
   blocks.push({[currSpeaker]: currentBlock});
+
   const {start_timestamp, end_timestamp} = fields;
   axios.post("https://dhuy348ip1.execute-api.us-east-1.amazonaws.com/Stage/donors", {
     start_timestamp,
     end_timestamp,
     messages: blocks
   }).catch(err => console.log(err));
+  
   console.log(blocks);
   const data = {}
   Promise.all(Object.keys(content).map(async key => {
