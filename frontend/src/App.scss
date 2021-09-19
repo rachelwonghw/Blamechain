@@ -1,18 +1,25 @@
 .App {
   background: #FaFaFa;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 40px;
-}
+  margin: 0 auto;
+  justify-content: center;
+  box-sizing: border-box;
+  padding-top: 64px;
 
+<<<<<<< HEAD:frontend/src/App.css
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+=======
+  &__logo {
+    margin-bottom: 20px;
+  }
+>>>>>>> c99ad2e92fd24504d897c033089252591ac2a076:frontend/src/App.scss
 }
 
-@media (prefers-reduced-motion: no-preference) {
+
+/* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
@@ -40,4 +47,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

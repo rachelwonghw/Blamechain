@@ -3,7 +3,6 @@ import { PieChart } from 'react-minimal-pie-chart';
 import '../styles/Card.scss';
 
 //TODO: made it dynamic based on data received from endpoint 
-// and maybe click on pie chart to show different emotions and the respective analytics
 const color1 = '#BA4863';
 const color2 = '#F2D9DB';
 // const color3 = '#E6A2AA';

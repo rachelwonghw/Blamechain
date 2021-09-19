@@ -6,7 +6,7 @@ import '../styles/Tile.scss';
 const CLASSNAME = "tile";
 
 const Tile = (props) => {
-  const { date, onClick } = props;
+  const { date, onClick, id } = props;
   const dateObj = new Date(date);
 
   const handleOnClick = (event) => {
@@ -14,7 +14,7 @@ const Tile = (props) => {
   }
 
   return (
-    <div className={`${CLASSNAME}`} onClick={handleOnClick}>
+    <div className={`${CLASSNAME}`} onClick={handleOnClick} id={id}>
       <span className={`${CLASSNAME}__dateText`}>
         {`${dateObj.toLocaleDateString('en-US')} `}
       </span>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import Tile from '../components/Tile';
 import Button from '../components/Button';
 import Searchbar from '../components/Searchbar';
@@ -13,12 +14,28 @@ const dates = [
 ];
 
 const History = () => {
+  let history = useHistory();
   return (
     <div className="history">
-      <h1>History</h1>
+      {
+        <div className="history__tab">
+          <div
+            className={`history__tab__button history__tab__button--${window.location.pathname === "/home"? '' : "in"}active`}
+            onClick={() => history.push('/home')}
+          >
+            History
+          </div>
+          <div
+            className={`history__tab__button history__tab__button--${window.location.pathname === "/home"? 'in' : ''}active history__tab__button--right`}
+            onClick={() => history.push('/analytics')}
+          >
+            Analytics
+          </div>
+        </div>
+      }
       <Searchbar />
-      {dates.map((item) => {
-        return <Tile date={item} onClick={() => console.log(item)} />
+      {dates.map((item, index) => {
+        return <Tile date={item} onClick={() => history.push(`/transcript/${index}`)} id={index} />
       })}
       <Button />
     </div>
