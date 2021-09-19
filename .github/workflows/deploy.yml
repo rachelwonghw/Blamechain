@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ master ]
 
+defaults:
+  run:
+    working-directory: frontend
+
 jobs:
   build:
 
@@ -29,9 +33,6 @@ jobs:
         git config --global user.email "hello@rachelwonghw.com"
         git config --global user.name "Rachel Wong"
         git remote set-url origin https://${{secrets.DEPLOY_TOKEN}}@github.com/rachelwonghw/Blamechain.git
-    - name: navigate to frontend folder
-      run:
-        cd frontend
     - name: deploy
       run:
         yarn run deploy
