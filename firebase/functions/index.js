@@ -15,6 +15,7 @@ const fs = require('fs');
 // Node.js doesn't have a built-in multipart/form-data parsing library.
 // Instead, we can use the 'busboy' library from NPM to parse these requests.
 const Busboy = require('busboy');
+const { default: axios } = require('axios');
 
  /**
  * Parses a 'multipart/form-data' upload request
@@ -23,6 +24,16 @@ const Busboy = require('busboy');
  * @param {Object} res Cloud Function response context.
  */
 exports.audio = functions.https.onRequest((req, res) => {
+  res.set('Access-Control-Allow-Origin', '*');
+
+  if (req.method === 'OPTIONS') {
+    // Send response to OPTIONS requests
+    res.set('Access-Control-Allow-Methods', 'GET');
+    res.set('Access-Control-Allow-Headers', 'Content-Type');
+    res.set('Access-Control-Max-Age', '3600');
+    res.status(204).send('');
+  }
+
   if (req.method !== 'POST') {
     // Return a "method not allowed" error
     return res.status(405).end();
@@ -80,7 +91,7 @@ exports.audio = functions.https.onRequest((req, res) => {
     for (const file in uploads) {
       process({
         content: fs.readFileSync(uploads[file]).toString('base64')
-      }, fields.encoding);
+      }, fields);
       fs.unlinkSync(uploads[file]);
     }
     res.send();
@@ -109,13 +120,13 @@ async function analyze(text) {
   }
 }
 
-async function process(audio, encoding) {
+async function process(audio, fields) {
   
   // Creates a client
   const client = new speech.SpeechClient();
 
   const config = {
-    encoding,
+    encoding: fields.encoding,
     sampleRateHertz: 16000,
     languageCode: 'en-US',
     enableSpeakerDiarization: true,
@@ -170,6 +181,12 @@ async function process(audio, encoding) {
     prevWord = a.word;
   }
   blocks.push({[currSpeaker]: currentBlock});
+  const {start_timestamp, end_timestamp} = fields;
+  axios.post("https://dhuy348ip1.execute-api.us-east-1.amazonaws.com/Stage/donors", {
+    start_timestamp,
+    end_timestamp,
+    messages: blocks
+  }).catch(err => console.log(err));
   console.log(blocks);
   const data = {}
   Promise.all(Object.keys(content).map(async key => {
@@ -189,5 +206,10 @@ async function process(audio, encoding) {
       console.log("Upset: " + upset);
       const started = Object.keys(blocks[0])[0];
       console.log("Started: " + started);
+
+      axios.put("https://dhuy348ip1.execute-api.us-east-1.amazonaws.com/Stage/donors", {
+        most_upset_speaker: upset,
+        start_argument_speaker: started
+      }).catch(err => console.log(err));
     });
 }
