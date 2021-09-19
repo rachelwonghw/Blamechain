@@ -10,7 +10,7 @@ const color2 = '#F2D9DB';
 
 const Card = (props) => {
   const { upsetOverall } = props;
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({});
 
   useEffect(() => {
     axios.get("https://us-central1-blame-game-326403.cloudfunctions.net/everything")

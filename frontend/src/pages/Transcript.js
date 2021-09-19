@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
@@ -39,6 +39,8 @@ const leftBubble = (text) => {
 
 const Transcript = (props) => {
   const { date } = props;
+  const [data,setData] = useState({});
+
   const history = useHistory();
   return (
     <div className="transcript">
