@@ -26,13 +26,13 @@ const Card = (props) => {
               { title: 'Annoyed', value: 35, color: color2 },
               { title: 'Frustration', value: 20, color: color3 },
             ]
-          }
+            }
           />
         </div>
         <div className="card_analytics__wrapper">
-          {primaryEmotions? <div className="card__analytics__bold">Angry</div> : ''}
-          <div className="card__analytics">Bob -- 65%</div>
-          <div className="card__analytics">Alice -- 35%</div>
+          {primaryEmotions ? <div className="card__analytics__bold">Angry</div> : ''}
+          <div className="card__analytics">Bob — 65%</div>
+          <div className="card__analytics">Alice — 35%</div>
         </div>
       </div>
     </div>
