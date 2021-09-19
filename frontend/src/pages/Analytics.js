@@ -8,8 +8,8 @@ const Analytics = () => {
   return (
     <div className="analytics">
       <h1>Analytics</h1>
-      <Card primaryEmotions />
-      <Card primaryEmotions={false} />
+      <Card upsetOverall />
+      <Card upsetOverall={false} />
       <Button />
     </div>
   );
