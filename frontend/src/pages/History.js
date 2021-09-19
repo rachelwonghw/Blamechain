@@ -34,8 +34,8 @@ const History = () => {
         </div>
       }
       <Searchbar />
-      {dates.map((item) => {
-        return <Tile date={item} onClick={() => console.log(item)} />
+      {dates.map((item, index) => {
+        return <Tile date={item} onClick={() => history.push(`/transcript/${index}`)} id={index} />
       })}
       <Button />
     </div>

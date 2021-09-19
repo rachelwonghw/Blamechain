@@ -5,7 +5,6 @@ import Analytics from './pages/Analytics';
 import History from './pages/History';
 import Transcript from './pages/Transcript';
 
-//TODO: add nav tab between history and analytics
 const App = () => {
   return (
     <BrowserRouter>
