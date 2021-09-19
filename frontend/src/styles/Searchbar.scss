@@ -1,12 +1,21 @@
 .searchbar {
+  font-size: 20px;
   display: flex;
+  grid-gap: 6px;
   flex-direction: row;
   justify-content: flex-start;
   border: 1px solid #ABABAB;
   border-radius: 2px;
   padding: 8px 12px;
 
+  box-sizing: border-box;
+  
+
   &__input {
+    font-family: neue-haas-unica;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 20px;
     -webkit-appearance: none;
     outline: none;
     border: none;
