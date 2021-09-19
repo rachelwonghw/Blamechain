@@ -66,15 +66,6 @@ exports.everything = functions.https.onRequest((req, res) => {
     })
 });
 
-exports.argument = functions.https.onRequest((req, res) => {
-  const {argumentId} = req.query;
-  axios.get(`https://dhuy348ip1.execute-api.us-east-1.amazonaws.com/dev/donors/${argumentId}`)
-    .then(response => {
-      const { email } = response.data;
-      return res.send(JSON.parse(email.replace(/#/g, '"')));
-    });
-});
-
  /**
  * Parses a 'multipart/form-data' upload request
  *
