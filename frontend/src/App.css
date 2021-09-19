@@ -1,14 +1,14 @@
 .App {
   background: #FaFaFa;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 40px;
+  margin: 0 auto;
+  justify-content: center;
+  box-sizing: border-box;
+  padding-top: 64px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App__logo {
+  margin-bottom: 20px;
 }
 
 @media (prefers-reduced-motion: no-preference) {

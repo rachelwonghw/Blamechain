@@ -2,7 +2,6 @@ import React from 'react';
 import Tile from '../components/Tile';
 import Button from '../components/Button';
 import Searchbar from '../components/Searchbar';
-import Logo from '../components/Logo';
 import '../styles/History.scss';
 
 const dates = [
@@ -16,7 +15,6 @@ const dates = [
 const History = () => {
   return (
     <div className="history">
-      <Logo className="history__logo" />
       <Searchbar />
       {dates.map((item) => {
         return <Tile date={item} onClick={() => console.log(item)} />

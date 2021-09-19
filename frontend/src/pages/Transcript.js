@@ -2,7 +2,6 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
-import Logo from '../components/Logo';
 import '../styles/Transcript.scss';
 
 
@@ -43,7 +42,6 @@ const Transcript = (props) => {
   const history = useHistory();
   return (
     <div className="transcript">
-      <Logo className="transcript__logo" />
       {dateBubble(date, history)}
       <div className="transcript__chat">
         {rightBubble("People used to say to me that you were too selfish to be an artist")}

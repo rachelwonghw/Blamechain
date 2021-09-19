@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
-import logo from './logo.svg';
+import Logo from './components/Logo';
 import './App.css';
 import Analytics from './pages/Analytics';
 import History from './pages/History';
@@ -10,6 +10,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className="App">
+      <Logo className="App__logo" />
         <Switch>
           <Route exact path="/">
             <Redirect to="/home" />
