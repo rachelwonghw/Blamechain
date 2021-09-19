@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from '../components/Card';
 import '../styles/Analytics.scss';
+import Button from '../components/Button';
 
 // TODO: call to endpoint to retrieve analytics
 const Analytics = () => {
@@ -9,6 +10,7 @@ const Analytics = () => {
       <h1>analytics</h1>
       <Card primaryEmotions />
       <Card primaryEmotions={false} />
+      <Button />
     </div>
   );
 }
