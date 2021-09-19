@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import '../styles/Transcript.scss';
-
 
 
 const dateBubble = (date, history) => {
@@ -38,8 +37,7 @@ const leftBubble = (text) => {
 }
 
 const Transcript = (props) => {
-  const { date } = props;
-  const [data,setData] = useState({});
+  const { date, conversation } = props;
 
   const history = useHistory();
   return (

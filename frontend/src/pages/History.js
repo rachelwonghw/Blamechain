@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Tile from '../components/Tile';
 import Button from '../components/Button';
 import Searchbar from '../components/Searchbar';
 import '../styles/History.scss';
+import axios from 'axios';
 
 const dates = [
   1631910840000,
@@ -14,6 +15,16 @@ const dates = [
 ];
 
 const History = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios.get("https://us-central1-blame-game-326403.cloudfunctions.net/everything")
+      .then(res => {
+        setData(res.data.conversations);
+      });
+  }, []);
+
+
   let history = useHistory();
   return (
     <div className="history">
