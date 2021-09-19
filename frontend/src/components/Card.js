@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { PieChart } from 'react-minimal-pie-chart';
-import axios from 'axios';
+// import axios from 'axios';
 import '../styles/Card.scss';
 
 //TODO: made it dynamic based on data received from endpoint 

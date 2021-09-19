@@ -6,13 +6,13 @@ import Searchbar from '../components/Searchbar';
 import '../styles/History.scss';
 import axios from 'axios';
 
-const dates = [
-  1631910840000,
-  1631913281000,
-  1631247080000,
-  1630537710000,
-  1630110285000
-];
+// const dates = [
+//   1631910840000,
+//   1631913281000,
+//   1631247080000,
+//   1630537710000,
+//   1630110285000
+// ];
 
 const History = () => {
   const [data, setData] = useState([]);
