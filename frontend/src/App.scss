@@ -1,13 +1,18 @@
 .App {
+  background: #FaFaFa;
   text-align: center;
+  margin: 0 auto;
+  justify-content: center;
+  box-sizing: border-box;
+  padding-top: 64px;
+
+  &__logo {
+    margin-bottom: 20px;
+  }
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
+/* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
@@ -35,4 +40,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

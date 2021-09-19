@@ -1,0 +1,46 @@
+.card {
+  background: #FFFFFF;
+  border: 1px solid #EEEEEE;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 24px;
+
+
+  &__title {
+    font-family: neue-haas-unica;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 27px;
+    letter-spacing: -0.03em;
+    color: #383838;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  &__emotions {
+    display: grid;
+    grid-template-columns: 5fr 3fr;
+    align-items: center;
+    text-align: left;
+  }
+
+  &__analytics {
+    font-family: neue-haas-unica;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 24px;
+    color: #383838;
+    text-align: left;
+    margin-top: 4px;
+
+    &__bold {
+      font-family: neue-haas-unica;
+      font-weight: bold;
+      font-size: 18px;
+    }
+  }
+
+}
