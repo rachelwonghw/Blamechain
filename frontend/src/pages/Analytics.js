@@ -7,7 +7,7 @@ import Button from '../components/Button';
 const Analytics = () => {
   return (
     <div className="analytics">
-      <h1>analytics</h1>
+      <h1>Analytics</h1>
       <Card primaryEmotions />
       <Card primaryEmotions={false} />
       <Button />

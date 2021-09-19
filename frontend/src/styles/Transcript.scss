@@ -1,14 +1,22 @@
 .transcript {
-  height: 100%;
   align-items: center;
   margin: 0 auto;
   justify-content: center;
   box-sizing: border-box;
+  background-color: #FAFaFa;
+
+  &__backButton {
+    position: absolute;
+    left: 20px;
+    font-size: 28px;
+    color: #383838;
+    opacity: 0.5;
+  }
 
   &__dateBubble {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     margin-bottom: 30px;
 
@@ -61,5 +69,13 @@
     margin-left: 16px;
     margin-bottom: 10px;
     text-align: left;
+  }
+
+  &__endText {
+    padding-top: 24px;
+    color: #383838;
+    opacity: 0.6;
+    font-size: 14px;
+
   }
 }

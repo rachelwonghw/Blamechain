@@ -15,13 +15,13 @@ const Tile = (props) => {
 
   return (
     <div className={`${CLASSNAME}`} onClick={handleOnClick}>
-      <span className={`${CLASSNAME}__text`}>
+      <span className={`${CLASSNAME}__dateText`}>
         {`${dateObj.toLocaleDateString('en-US')} `}
       </span>
       <span className={`${CLASSNAME}__text ${Math.random()}`}>
-      {`${dateObj.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}`}
+        {`${dateObj.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}`}
       </span>
-      <span clssName={`${CLASSNAME}__icon`}>
+      <span className={`${CLASSNAME}__icon`}>
         <FontAwesomeIcon icon={faAngleRight} />
       </span>
     </div>

@@ -3,11 +3,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import '../styles/Transcript.scss';
 
+
+
 const dateBubble = (date) => {
   const dateObj = new Date(date);
   return (
     <div className="transcript__dateBubble">
-    <FontAwesomeIcon icon={faAngleLeft} />
+      <div className="transcript__backButton">
+        <FontAwesomeIcon icon={faAngleLeft} />
+      </div>
       <div className="transcript__dateBubble__text">
         {`${dateObj.toLocaleDateString('en-US')} ${dateObj.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}`}
       </div>
@@ -41,7 +45,7 @@ const Transcript = (props) => {
         {leftBubble("You’re back to being a hack")}
         {rightBubble("You gaslighted me")}
         {rightBubble("You’re a fucking villain")}
-        {leftBubble("You want to present yourself as a victim beuase it’s a good legal strategy fine")}
+        {leftBubble("You want to present yourself as a victim because it’s a good legal strategy fine")}
         {leftBubble("But you and I both know you  chose this life")}
         {leftBubble("You wanted it until you didn’t")}
         {leftBubble("You used me so you could get out of LA")}
@@ -49,9 +53,12 @@ const Transcript = (props) => {
         {leftBubble("You did and then you blamed me for it you always made me aware of what I was doing wrong how I was falling short")}
         {leftBubble("Life with you was joyless")}
       </div>
-      End of transcript
-    </div>
-    
+
+      <div className="transcript__endText">
+        End of transcript
+      </div>
+    </div >
+
   );
 }
 

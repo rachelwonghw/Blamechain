@@ -6,16 +6,26 @@
   border-radius: 4px;
   flex-direction: row;
   align-items: flex-end;
-  display: block;
-  padding: 20px 20px 20px 12px;
+  display: grid;
+  justify-items: right;
+  grid-gap: 8px;
+  grid-template-columns: max-content max-content 1fr;
+  padding: 20px 20px 20px 20px;
+  margin-bottom: 12px;
+
+  &__dateText {
+    font-family: neue-haas-unica;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.06em;
+    color: #383838;
+  }
   
 
   &__text {
-    font-style: normal;
-    font-weight: normal;
+    font-family: neue-haas-unica;
     font-size: 18px;
-    line-height: 18px;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.02em;
     color: #383838;
   }
 
@@ -23,5 +33,8 @@
     float: 'right';
     display: 'inline-block';
     color: #383838;
+    font-size: 24px;
+    color: #383838;
+    opacity: 0.4;
   }
 }
