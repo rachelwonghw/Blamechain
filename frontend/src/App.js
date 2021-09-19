@@ -4,6 +4,7 @@ import './App.css';
 import Analytics from './pages/Analytics';
 import History from './pages/History';
 
+//TODO: add nav tab between history and analytics and redirect / to /home
 const App = () => {
   return (
     <BrowserRouter>
