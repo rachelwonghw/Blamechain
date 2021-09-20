@@ -6,7 +6,11 @@ Enter Blaimchain.
 ## What it does
 Save all of your arguments onto the blockchain, and blame each other with confidence. Use analytics to determine who's really at fault.
 
+Watch a demo on [Devpost](https://devpost.com/software/blame-game).
+
 ## How we built it
+
+![Diagram of Blamechain tech stack](./static/Blamechain.png)
 
 The use records and uploads their arguments to GCP cloud functions which then transcribes the audio to text and analyzes the transcript with sentiment analysis using GCP AI services. Each argument transcript is then labeled based on the analysis and both are saved to the blockchain hosted on AWS (Amazon Managed Blockchain). The user then sees analytics computed based on the transcripts and their labels read from the blockchain. The blockchain is accessible via chaincode (Hyperledger smart contracts) and a REST API deployed and hosted with AWS API Gateway and AWS Lambda. Lastly, the frontend ReactJS web application is hosted on GitHub pages.
 
